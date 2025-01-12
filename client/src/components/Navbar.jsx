@@ -13,12 +13,9 @@ const Navbar = () => {
           <button className="bg-green-500 hover:bg-green-700 text-white px-6 py-2 rounded-lg">
             Sign as Pantry Staff
           </button>
-        </Link>{" "}
+        </Link>
         <Link to={"/rider-login"}>
-          <button
-            onClick={() => (window.location.href = "/rider-login")}
-            className="bg-orange-500 hover:bg-orange-700 text-white px-6 py-2 rounded-lg"
-          >
+          <button className="bg-orange-500 hover:bg-orange-700 text-white px-6 py-2 rounded-lg">
             Sign as Rider
           </button>
         </Link>
