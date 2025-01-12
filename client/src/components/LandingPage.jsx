@@ -7,6 +7,10 @@ const LandingPage = () => {
         visible, please refresh the page or click on the logo button (HFM) on
         the left side or move to route /*.
       </p>
+      <p className="mt-2 text-gray-600">
+        Also, after delivery is complete, the assigned meal is automatically
+        deleted from the database.
+      </p>
     </div>
   );
 };
