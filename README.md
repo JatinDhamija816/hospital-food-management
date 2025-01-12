@@ -92,7 +92,7 @@ Access the application live at: [Hospital Food Manager Live Link](https://hospit
 ---
 
 ## Postman Collection
-To test the API endpoints, import the [Postman Collection](#) into Postman.
+To test the API endpoints, import the [Postman Collection](https://hospital-food-management.postman.co/workspace/hospital-food-management-Worksp~0a9ad450-1a7b-4bb1-a98f-825ac6d35815/request/33183162-12a54025-5bdd-4b90-aab2-5b88735eda79) into Postman.
 
 ---
 
