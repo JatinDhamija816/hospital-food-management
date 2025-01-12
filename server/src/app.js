@@ -11,7 +11,7 @@ const app = express();
 const isProduction = process.env.NODE_ENV === "production";
 
 const allowedOrigins = isProduction
-  ? ["https://your-frontend.vercel.app"]
+  ? ["https://hospital-food-management-tau.vercel.app"]
   : ["http://localhost:5173"];
 
 app.use(
