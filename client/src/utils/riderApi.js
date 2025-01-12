@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const SERVER_PORT = "http://localhost:8000/api/v1";
+import { SERVER_PORT } from "./constants";
 
 export const addRider = async (data) => {
   try {
