@@ -47,12 +47,13 @@ const RiderNavbar = () => {
                 <FaGear />
               </div>
             </div>
-
-            <div
-              className="md:hidden flex items-center focus:outline-none"
-              onClick={handleToggleMenu}
-            >
-              {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            <div className="md:hidden flex">
+              <div
+                className="md:hidden flex items-center focus:outline-none"
+                onClick={handleToggleMenu}
+              >
+                {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+              </div>
             </div>
           </div>
         </div>
