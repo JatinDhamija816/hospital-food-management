@@ -24,6 +24,7 @@ const RiderNavbar = () => {
         alert(res.message);
         setProfileModal(false);
         setIsOpen(false);
+        navigate("/");
       }
     } catch (error) {
       alert("Something went wrong");
