@@ -9,14 +9,14 @@ export const adminLogin = async (data) => {
 
     return res.data;
   } catch (error) {
-    return error;
+    return error.response.data;
   }
 };
 
 export const checkLogin = async (role) => {
   try {
     const response = await axios.post(
-      `${SERVER_PORT}/admin/check-login`,
+      `${SERVER_PORT}/check-login`,
       { role },
       {
         withCredentials: true,
@@ -68,6 +68,6 @@ export const fetchAllAssignMeal = async () => {
 
     return response.data;
   } catch (error) {
-    console.error("Error fetching dashboard data:", error);
+    return error;
   }
 };
