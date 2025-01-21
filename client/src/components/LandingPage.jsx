@@ -1,16 +1,34 @@
+import { Link } from "react-router-dom";
+
 const LandingPage = () => {
   return (
-    <div className="flex flex-col items-center py-5">
-      <h1 className="text-2xl font-bold mb-3">Hospital Food Manager</h1>
-      <p className="text-sm text-gray-600 text-center">
-        Note: After adding, updating, or deleting data, if the changes are not
-        visible, please refresh the page or click on the logo button (HFM) on
-        the left side or move to route /*.
-      </p>
-      <p className="mt-2 text-gray-600">
-        Also, after delivery is complete, the assigned meal is automatically
-        deleted from the database.
-      </p>
+    <div>
+      <nav className="w-full z-50 shadow">
+        <p className="text-xl font-bold text-black p-3">HFM</p>
+      </nav>
+      <div className="flex flex-col items-center">
+        <h1 className="text-center text-2xl font-bold mt-5">
+          Hospital Food Manager
+        </h1>
+
+        <div>
+          <div className="bg-blue-500 hover:bg-blue-700 text-white text-center px-6 py-2 my-3 w-full rounded-lg">
+            <Link to={"/admin-login"}>
+              <button>Sign as Admin</button>
+            </Link>
+          </div>
+          <div className="bg-green-500 hover:bg-green-700 text-white text-center px-6 py-2 my-3 w-full rounded-lg">
+            <Link to={"/pantry-staff-login"}>
+              <button>Sign as Pantry Staff</button>
+            </Link>
+          </div>
+          <div className="bg-orange-500 hover:bg-orange-700 text-white text-center px-6 py-2 my-3 w-full rounded-lg">
+            <Link to={"/rider-login"}>
+              <button>Sign as Rider</button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

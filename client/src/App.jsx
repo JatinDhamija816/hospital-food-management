@@ -21,7 +21,6 @@ import EditRider from "./components/rider/EditRider";
 import PantryStaffLogin from "./components/pantry/PantryStaffLogin";
 import PantryStaffDashboard from "./components/pantry/PantryStaffDashboard";
 import PantryNavbar from "./components/pantry/PantryNavbar";
-import Navbar from "./components/Navbar";
 import RiderNavbar from "./components/rider/RiderNavbar";
 import RiderDashboard from "./components/rider/RiderDashboard";
 import RiderLogin from "./components/rider/RiderLogin";
@@ -33,9 +32,6 @@ const App = () => {
 
   return (
     <div className="bg-white text-black">
-      {!isAdminLoggedIn && !isPantryStaffLoggedIn && !isRiderLoggedIn ? (
-        <Navbar />
-      ) : null}
       {isAdminLoggedIn && !isPantryStaffLoggedIn && !isRiderLoggedIn ? (
         <AdminNavbar />
       ) : null}
@@ -76,7 +72,7 @@ const App = () => {
           </>
         ) : null}
 
-        {!isAdminLoggedIn && !isPantryStaffLoggedIn ? (
+        {!isAdminLoggedIn && !isPantryStaffLoggedIn && !isRiderLoggedIn ? (
           <>
             <Route path="/" element={<LandingPage />} />
             <Route path="/admin-login" element={<AdminLogin />} />
