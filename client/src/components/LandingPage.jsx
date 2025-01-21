@@ -10,6 +10,14 @@ const LandingPage = () => {
         <h1 className="text-center text-2xl font-bold mt-5">
           Hospital Food Manager
         </h1>
+        <div className="w-5/6 md:w-1/2">
+          <p className="text-center text-lg my-5">
+            🚧 Project Under Maintenance: The system is currently live but
+            experiencing some issues as bug fixes are in progress. 🚧 A
+            streamlined platform designed for hospitals to efficiently manage
+            patient diets, meal preparation, and deliveries.
+          </p>
+        </div>
 
         <div>
           <div className="bg-blue-500 hover:bg-blue-700 text-white text-center px-6 py-2 my-3 w-full rounded-lg">
