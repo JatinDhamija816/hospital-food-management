@@ -5,6 +5,7 @@ import adminRouter from "./routes/admin.route.js";
 import patientRouter from "./routes/patient.route.js";
 import pantryRouter from "./routes/pantryStaff.route.js";
 import riderRouter from "./routes/rider.route.js";
+import commonRouter from "./routes/common.route.js";
 
 const app = express();
 
@@ -43,5 +44,6 @@ app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/patient", patientRouter);
 app.use("/api/v1/pantry", pantryRouter);
 app.use("/api/v1/rider", riderRouter);
+app.use("/api/v1", commonRouter);
 
 export default app;

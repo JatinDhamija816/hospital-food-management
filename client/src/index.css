@@ -10,7 +10,7 @@
 }
 
 .input {
-  @apply w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-white break-words overflow-hidden;
+  @apply w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 break-words overflow-hidden;
 }
 
 .passwordInput {
@@ -30,5 +30,5 @@
 }
 
 .mobile-profile-modal {
-  @apply font-semibold text-center cursor-pointer hover:bg-cyan-500 rounded-md px-3 py-2 transition hover:text-white
+  @apply font-semibold text-center cursor-pointer hover:bg-cyan-500 rounded-md px-3 py-2 transition hover:text-white w-full
 }

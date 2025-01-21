@@ -4,7 +4,7 @@ import { AdminContext } from "./contexts/AdminContext";
 import { PantryStaffContext } from "./contexts/PantryStaffContext";
 import { RidersContext } from "./contexts/RidersContext";
 import LandingPage from "./components/LandingPage";
-import AdminNavbar from "./components/admin/AdminNavbar";
+import AdminNavbar from "./components/admin/AdminNavbar/AdminNavbar";
 import AdminLogin from "./components/admin/AdminLogin";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import AddPatient from "./components/patient/AddPatient";

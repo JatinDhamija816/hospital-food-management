@@ -1,2 +1,1 @@
-export const SERVER_PORT =
-  "https://hospital-food-management-zkkq.onrender.com/api/v1";
+export const SERVER_PORT = "http://localhost:8000/api/v1";

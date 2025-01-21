@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { FaEye, FaRegEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { AdminContext } from "../../contexts/AdminContext";
 import { adminLogin } from "../../utils/adminApi";
+import { AdminContext } from "../../contexts/AdminContext";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -52,6 +52,7 @@ const AdminLogin = () => {
           </div>
         </div>
       </nav>
+
       <div className="w-full flex items-center justify-center mt-5">
         <form
           onSubmit={handleSubmit}
