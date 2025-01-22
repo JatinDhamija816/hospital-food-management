@@ -45,7 +45,10 @@ const AllPatients = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div className="flex items-center justify-center mt-10">Loading...</div>
+    );
 
   return (
     <div className="w-full justify-center mt-5">
@@ -54,7 +57,7 @@ const AllPatients = () => {
           <h2 className="text-xl font-bold">{patient.name}</h2>
           <p className="">Contact: {patient.contact}</p>
           <p className="">Age: {patient.age}</p>
-          <p className="">Disease: {patient.diseases}</p>
+          <p className="">Disease: {patient.disease}</p>
           <p className="">Allergies: {patient.allergies}</p>
 
           <div className="mt-3">

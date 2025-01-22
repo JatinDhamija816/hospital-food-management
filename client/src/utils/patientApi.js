@@ -28,7 +28,7 @@ export const getAllPatients = async () => {
 
     return response.data;
   } catch (error) {
-    return error;
+    return error.response.data;
   }
 };
 
@@ -74,7 +74,7 @@ export const updatePatient = async (patientId, updatedData) => {
 
     return response.data;
   } catch (error) {
-    return error;
+    return error.response.data;
   }
 };
 

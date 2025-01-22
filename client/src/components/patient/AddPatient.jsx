@@ -6,7 +6,8 @@ import { patientFields } from "./constant";
 
 const AddPatient = () => {
   const navigate = useNavigate();
-  const { setRefreshPatient } = useContext(PatientsContext);
+  const { setRefreshPatient, loading, setLoading } =
+    useContext(PatientsContext);
 
   const [patient, setPatient] = useState({
     name: "",
@@ -59,7 +60,7 @@ const AddPatient = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const res = await addPatient({ patient, dietChart });
 
@@ -68,11 +69,13 @@ const AddPatient = () => {
         setRefreshPatient(true);
         navigate("/all-patients");
       } else {
-        alert(res.response.data.message);
+        alert(res.message);
       }
     } catch (error) {
+      console.error("Error while add patient:", error);
       alert("Something went wrong");
-      throw new error();
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -87,7 +90,7 @@ const AddPatient = () => {
         </h3>
         <h4 className="text-xl font-bold text-center mb-6 ">Patient Details</h4>
 
-        {patientFields.map(({ label, name, type }) => (
+        {patientFields.map(({ label, name, type, required }) => (
           <div className="mb-4" key={name}>
             <label htmlFor={name} className="label">
               {label}
@@ -99,7 +102,7 @@ const AddPatient = () => {
               value={patient[name]}
               onChange={handlePatientInputChange}
               className="input"
-              required
+              required={required}
             />
           </div>
         ))}
@@ -129,7 +132,7 @@ const AddPatient = () => {
           ))}
         </div>
         <button className="formSubmitBtn" type="submit">
-          Add Patient
+          {loading ? "Wait..." : "Add Patient"}
         </button>
       </form>
     </div>

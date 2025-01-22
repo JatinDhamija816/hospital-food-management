@@ -1,6 +1,6 @@
 import Patient from "../../models/patient.model.js";
 
-export const updatePatient = async (req, res) => {
+const editPatient = async (req, res) => {
   try {
     const { patientId } = req.params;
     const updatedData = req.body;
@@ -14,10 +14,9 @@ export const updatePatient = async (req, res) => {
     }
 
     for (const key in updatedData) {
-      if (updatedData[key]) {
-        patient[key] = updatedData[key];
-      }
+      patient[key] = updatedData[key];
     }
+
     await patient.save();
 
     return res.status(200).json({
@@ -33,3 +32,5 @@ export const updatePatient = async (req, res) => {
     });
   }
 };
+
+export default editPatient;
