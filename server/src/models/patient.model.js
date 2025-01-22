@@ -15,7 +15,6 @@ const patientSchema = new Schema(
     },
     allergies: {
       type: String,
-      required: true,
       lowercase: true,
       trim: true,
     },

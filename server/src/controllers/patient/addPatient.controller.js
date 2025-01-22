@@ -20,7 +20,6 @@ const addPatient = async (req, res) => {
     if (
       !name ||
       !disease ||
-      !allergies ||
       !room ||
       !bed ||
       !floor ||
@@ -31,6 +30,20 @@ const addPatient = async (req, res) => {
       return res.status(400).json({
         success: false,
         message: "Missing required patient fields",
+      });
+    }
+
+    if (contact.length !== 10) {
+      return res.status(400).json({
+        success: false,
+        message: "Contact number must be 10 digit",
+      });
+    }
+
+    if (emergencyContact.length !== 10) {
+      return res.status(400).json({
+        success: false,
+        message: "Emergency Contact number must be 10 digit",
       });
     }
 
