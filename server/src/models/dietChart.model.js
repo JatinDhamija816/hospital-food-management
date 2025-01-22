@@ -7,20 +7,36 @@ const DietChartSchema = new Schema(
       ref: "Patient",
       required: true,
     },
-    meals: [
-      {
-        type: {
-          type: String,
-          enum: ["Morning", "Evening", "Night"],
-        },
-        ingredients: {
-          type: [String],
-        },
-        instructions: {
-          type: String,
-        },
+    morning: {
+      ingredients: {
+        type: String,
+        trim: true,
       },
-    ],
+      instructions: {
+        type: String,
+        trim: true,
+      },
+    },
+    lunch: {
+      ingredients: {
+        type: String,
+        trim: true,
+      },
+      instructions: {
+        type: String,
+        trim: true,
+      },
+    },
+    night: {
+      ingredients: {
+        type: String,
+        trim: true,
+      },
+      instructions: {
+        type: String,
+        trim: true,
+      },
+    },
   },
   {
     timestamps: true,

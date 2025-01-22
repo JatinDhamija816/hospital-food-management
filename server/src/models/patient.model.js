@@ -11,7 +11,6 @@ const patientSchema = new Schema(
     disease: {
       type: String,
       required: true,
-      lowercase: true,
       trim: true,
     },
     allergies: {
@@ -36,17 +35,13 @@ const patientSchema = new Schema(
       type: Number,
       required: true,
     },
-    gender: {
-      type: String,
-      enum: ["Male", "Female", "Other"],
-      required: true,
-    },
+
     contact: {
-      type: String,
+      type: Number,
       required: true,
     },
     emergencyContact: {
-      type: String,
+      type: Number,
       required: true,
     },
     dietChart: {
