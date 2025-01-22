@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createPatientWithDietChart } from "../controllers/patient/createPatient.controller.js";
+import addPatient from "../controllers/patient/addPatient.controller.js";
 import { getAllPatientsWithDietChart } from "../controllers/patient/gellAllPatient.controller.js";
 import { deletePatient } from "../controllers/patient/deletePatient.controller.js";
 import { updatePatient } from "../controllers/patient/updatePatient.controller.js";
@@ -8,7 +8,7 @@ import { getIndividualPatient } from "../controllers/patient/getIndividualPatien
 
 const router = Router();
 
-router.post("/add-patient-dietChart", createPatientWithDietChart);
+router.post("/add-patient", addPatient);
 router.get("/get-all-patients", getAllPatientsWithDietChart);
 router.get("/get-individual-patient/:patientId", getIndividualPatient);
 router.patch("/update-patient/:patientId", updatePatient);

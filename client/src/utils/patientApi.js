@@ -4,7 +4,7 @@ import { SERVER_PORT } from "./constants";
 export const addPatient = async (patientData) => {
   try {
     const response = await axios.post(
-      `${SERVER_PORT}/patient/add-patient-dietChart`,
+      `${SERVER_PORT}/patient/add-patient`,
       { patientData },
       {
         withCredentials: true,
@@ -13,7 +13,7 @@ export const addPatient = async (patientData) => {
 
     return response.data;
   } catch (error) {
-    return error;
+    return error.response.data;
   }
 };
 
@@ -93,4 +93,3 @@ export const updateDietChart = async (patientId, meals) => {
     return error;
   }
 };
-
