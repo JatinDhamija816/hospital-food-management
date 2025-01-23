@@ -28,7 +28,7 @@ const AllPatients = () => {
     try {
       const res = await getIndividualPatient(patientId);
       if (res.success) {
-        setIndividualPatient(res.patient);
+        setIndividualPatient(res.patient.dietChart);
         await setRefreshPatient(true);
         navigate("/edit-diet-chart");
       }
@@ -109,6 +109,7 @@ const AllPatients = () => {
                 ))}
             </div>
           </div>
+
           <div className="mt-5 flex justify-end space-x-2">
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded"

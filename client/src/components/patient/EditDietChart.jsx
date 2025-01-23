@@ -8,27 +8,39 @@ const EditDietChart = () => {
     useContext(PatientsContext);
   const navigate = useNavigate();
 
-  const [dietChart, setDietChart] = useState([]);
+  const [dietChart, setDietChart] = useState({
+    morning: { ingredients: "", instructions: "" },
+    evening: { ingredients: "", instructions: "" },
+    night: { ingredients: "", instructions: "" },
+  });
+
+  const mealTimes = ["morning", "evening", "night"];
 
   useEffect(() => {
-    if (individualPatient?.dietChart?.meals) {
-      setDietChart(individualPatient.dietChart.meals);
+    if (individualPatient) {
+      const { morning, evening, night } = individualPatient;
+      setDietChart({
+        morning: { ...morning },
+        evening: { ...evening },
+        night: { ...night },
+      });
     }
-  }, [individualPatient]);
+  }, [individualPatient, setDietChart]);
 
-  const handleDietChartChange = (index, field, value) => {
-    const updatedChart = [...dietChart];
-    updatedChart[index][field] = value;
-    setDietChart(updatedChart);
+  const handleDietChartChange = (e) => {
+    const { name, value } = e.target;
+    const [mealTime, field] = name.split(".");
+    setDietChart((prevData) => ({
+      ...prevData,
+      [mealTime]: { ...prevData[mealTime], [field]: value },
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await updateDietChart(individualPatient._id, {
-        meals: dietChart,
-      });
+      const res = await updateDietChart(individualPatient.patientId, dietChart);
       if (res.success) {
         alert("Diet Chart updated successfully!");
         navigate("/all-patients");
@@ -51,47 +63,41 @@ const EditDietChart = () => {
         className="w-full max-w-lg px-8 py-6 shadow-lg rounded-lg bg-white"
       >
         <h3 className="text-2xl font-bold text-center mb-6">Edit Diet Chart</h3>
-
-        {dietChart.map((meal, index) => (
-          <div key={meal._id} className="mb-6 border-b pb-4">
-            <h4 className="text-lg font-semibold mb-2">{meal.type} Meal</h4>
+        {mealTimes.map((mealTime) => (
+          <div key={mealTime} className="mb-6 border-b pb-4">
+            <h4 className="text-lg font-semibold mb-2 capitalize">
+              {mealTime}
+            </h4>
 
             <div className="mb-4">
-              <label htmlFor={`ingredients-${index}`} className="label">
+              <label htmlFor={`${mealTime}.ingredients`} className="label">
                 Ingredients
               </label>
               <input
+                name={`${mealTime}.ingredients`}
                 type="text"
-                id={`ingredients-${index}`}
-                value={meal.ingredients.join(", ")}
-                onChange={(e) =>
-                  handleDietChartChange(
-                    index,
-                    "ingredients",
-                    e.target.value.split(",")
-                  )
-                }
+                id={`${mealTime}.ingredients`}
+                value={dietChart[mealTime].ingredients}
+                onChange={handleDietChartChange}
                 className="input"
               />
             </div>
 
             <div className="mb-4">
-              <label htmlFor={`instructions-${index}`} className="label">
+              <label htmlFor={`${mealTime}.instructions`} className="label">
                 Instructions
               </label>
               <input
+                name={`${mealTime}.instructions`}
                 type="text"
-                id={`instructions-${index}`}
-                value={meal.instructions}
-                onChange={(e) =>
-                  handleDietChartChange(index, "instructions", e.target.value)
-                }
+                id={`${mealTime}.instructions`}
+                value={dietChart[mealTime].instructions}
+                onChange={handleDietChartChange}
                 className="input"
               />
             </div>
           </div>
         ))}
-
         <button
           type="submit"
           className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600"
