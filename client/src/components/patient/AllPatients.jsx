@@ -8,6 +8,9 @@ const AllPatients = () => {
   const { setIndividualPatient, patients, loading, setRefreshPatient } =
     useContext(PatientsContext);
 
+  const patientFields = ["contact", "age", "disease"];
+  const mealTimes = ["evening", "morning", "night"];
+
   const handleEditPatient = async (patientId) => {
     try {
       const res = await getIndividualPatient(patientId);
@@ -54,25 +57,58 @@ const AllPatients = () => {
     <div className="w-full justify-center mt-5">
       {patients.map((patient) => (
         <div key={patient._id} className="shadow-md rounded-lg p-5 m-4">
-          <h2 className="text-xl font-bold">{patient.name}</h2>
-          <p className="">Contact: {patient.contact}</p>
-          <p className="">Age: {patient.age}</p>
-          <p className="">Disease: {patient.disease}</p>
-          <p className="">Allergies: {patient.allergies}</p>
+          <h2 className="text-xl font-bold capitalize">{patient.name}</h2>
+
+          {Object.entries(patient)
+            .filter((key) => patientFields.includes(key[0]))
+            .map((field) => (
+              <div key={field}>
+                <p>
+                  <span className="capitalize font-medium">{field[0]}: </span>
+                  {field[1]}
+                </p>
+              </div>
+            ))}
+
+          {patient.allergies && (
+            <p>
+              <span className="capitalize font-medium">Allergies: </span>{" "}
+              {patient.allergies}
+            </p>
+          )}
 
           <div className="mt-3">
-            <h3 className="font-semibold">Meals:</h3>
-            <div className="flex space-x-2">
-              {patient.dietChart?.meals?.map((meal) => (
-                <div key={meal._id} className="p-2 border rounded-lg shadow">
-                  <h4 className="font-semibold capitalize">{meal.type}</h4>
-                  <p>Ingredients: {meal.ingredients.join(", ")}</p>
-                  <p>Instructions: {meal.instructions}</p>
-                </div>
-              ))}
+            {(patient?.dietChart?.morning ||
+              patient?.dietChart?.lunch ||
+              patient?.dietChart?.dinner) && (
+              <h3 className="font-bold mb-2">Meals:</h3>
+            )}
+            <div className="space-y-3 md:space-y-0 md:flex md:space-x-3 ">
+              {Object.keys(patient.dietChart)
+                .filter((mealTime) => mealTimes.includes(mealTime))
+                .map((mealTime) => (
+                  <div key={mealTime} className="flex space-x-2">
+                    <div className="p-2 border rounded-lg shadow">
+                      <h4 className="font-semibold capitalize text-lg">
+                        {mealTime}
+                      </h4>
+                      {patient.dietChart[mealTime].ingredients && (
+                        <p>
+                          <span className="font-medium">Ingredients:</span>{" "}
+                          {patient.dietChart[mealTime].ingredients}
+                        </p>
+                      )}
+                      {patient.dietChart[mealTime].instructions && (
+                        <p>
+                          <span className="font-medium">Instructions: </span>
+                          {patient.dietChart[mealTime].instructions}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
-
           <div className="mt-5 flex justify-end space-x-2">
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded"

@@ -47,14 +47,14 @@ const addPatient = async (req, res) => {
       });
     }
 
-    const { morning, lunch, night } = dietChart || {};
+    const { morning, evening, night } = dietChart || {};
 
     const formattedDietChart = {};
     if (morning && morning.ingredients?.trim()) {
       formattedDietChart.morning = morning;
     }
-    if (lunch && lunch.ingredients?.trim()) {
-      formattedDietChart.lunch = lunch;
+    if (evening && evening.ingredients?.trim()) {
+      formattedDietChart.evening = evening;
     }
     if (night && night.ingredients?.trim()) {
       formattedDietChart.night = night;
