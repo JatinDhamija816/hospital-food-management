@@ -1,6 +1,6 @@
 import Patient from "../../models/patient.model.js";
 
-export const getAllPatientsWithDietChart = async (__, res) => {
+const getAllPatientsWithDietChart = async (__, res) => {
   try {
     const patients = await Patient.find().populate("dietChart");
 
@@ -24,3 +24,5 @@ export const getAllPatientsWithDietChart = async (__, res) => {
     });
   }
 };
+
+export default getAllPatientsWithDietChart;

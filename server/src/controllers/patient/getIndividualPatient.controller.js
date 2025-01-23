@@ -1,6 +1,6 @@
 import Patient from "../../models/patient.model.js";
 
-export const getIndividualPatient = async (req, res) => {
+const getIndividualPatient = async (req, res) => {
   try {
     const { patientId } = req.params;
 
@@ -25,3 +25,5 @@ export const getIndividualPatient = async (req, res) => {
     });
   }
 };
+
+export default getIndividualPatient;

@@ -78,11 +78,11 @@ export const updatePatient = async (patientId, updatedData) => {
   }
 };
 
-export const updateDietChart = async (patientId, meals) => {
+export const updateDietChart = async (patientId, dietChart) => {
   try {
     const response = await axios.patch(
       `${SERVER_PORT}/patient/update-dietChart/${patientId}`,
-      meals,
+      dietChart,
       {
         withCredentials: true,
       }
