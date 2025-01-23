@@ -43,7 +43,7 @@ export const deletePatient = async (patientId) => {
 
     return response.data;
   } catch (error) {
-    return error;
+    return error.response.data;
   }
 };
 
@@ -58,7 +58,7 @@ export const getIndividualPatient = async (patientId) => {
 
     return response.data;
   } catch (error) {
-    return error;
+    return error.response.data;
   }
 };
 
@@ -90,6 +90,6 @@ export const updateDietChart = async (patientId, meals) => {
 
     return response.data;
   } catch (error) {
-    return error;
+    return error.response.data;
   }
 };

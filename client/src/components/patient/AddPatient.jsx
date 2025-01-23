@@ -26,7 +26,7 @@ const AddPatient = () => {
       ingredients: "",
       instructions: "",
     },
-    lunch: {
+    evening: {
       ingredients: "",
       instructions: "",
     },
@@ -110,7 +110,7 @@ const AddPatient = () => {
         <h3 className="text-2xl font-bold text-center mb-6 ">Diet Chart</h3>
 
         <div className="mb-4 space-y-2">
-          {["morning", "lunch", "night"].map((meal) => (
+          {["morning", "evening", "night"].map((meal) => (
             <div className="mb-4 space-y-2" key={meal}>
               <h5 className="text-xl font-bold capitalize">{meal}</h5>
               {["ingredients", "instructions"].map((field) => (

@@ -17,7 +17,7 @@ const DietChartSchema = new Schema(
         trim: true,
       },
     },
-    lunch: {
+    evening: {
       ingredients: {
         type: String,
         trim: true,
