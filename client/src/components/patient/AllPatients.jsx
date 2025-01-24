@@ -20,7 +20,7 @@ const AllPatients = () => {
         navigate("/edit-patient");
       }
     } catch (error) {
-      console.error("Error fetching patients:", error);
+      console.error("Error edit patients:", error);
     }
   };
 
@@ -33,7 +33,7 @@ const AllPatients = () => {
         navigate("/edit-diet-chart");
       }
     } catch (error) {
-      console.error("Error fetching patients:", error);
+      console.error("Error edit diet chart:", error);
     }
   };
 
@@ -44,7 +44,7 @@ const AllPatients = () => {
         await setRefreshPatient(true);
       }
     } catch (error) {
-      console.error("Error fetching patients:", error);
+      console.error("Error delete patients:", error);
     }
   };
 
