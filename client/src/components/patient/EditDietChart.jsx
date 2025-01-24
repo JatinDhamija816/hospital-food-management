@@ -4,8 +4,13 @@ import { updateDietChart } from "../../utils/patientApi";
 import { PatientsContext } from "../../contexts/PatientsContext";
 
 const EditDietChart = () => {
-  const { individualPatient, setIndividualPatient, setRefreshPatient } =
-    useContext(PatientsContext);
+  const {
+    individualPatient,
+    setIndividualPatient,
+    setRefreshPatient,
+    loading,
+    setLoading,
+  } = useContext(PatientsContext);
   const navigate = useNavigate();
 
   const [dietChart, setDietChart] = useState({
@@ -38,7 +43,7 @@ const EditDietChart = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const res = await updateDietChart(individualPatient.patientId, dietChart);
       if (res.success) {
@@ -53,6 +58,7 @@ const EditDietChart = () => {
     } finally {
       setIndividualPatient({});
       setRefreshPatient(true);
+      setLoading(false);
     }
   };
 
@@ -102,7 +108,7 @@ const EditDietChart = () => {
           type="submit"
           className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600"
         >
-          Update Diet Chart
+          {loading ? "Updating" : "Update Diet Chart"}
         </button>
       </form>
     </div>
