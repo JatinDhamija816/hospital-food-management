@@ -3,7 +3,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { AdminProvider } from "./contexts/AdminContext.jsx";
-import { PatientsProvider } from "./contexts/PatientsContext.jsx";
+import { PatientsProvider } from "./contexts/PatientProvider.jsx";
 import { PantryStaffProvider } from "./contexts/PantryStaffContext.jsx";
 import { RidersProvider } from "./contexts/RidersContext.jsx";
 

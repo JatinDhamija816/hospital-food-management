@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { addPatient } from "../../utils/patientApi";
 import { useNavigate } from "react-router-dom";
-import { PatientsContext } from "../../contexts/PatientsContext";
 import { patientFields } from "./patientConstant";
+import { PatientsContext } from "../../contexts/PatientsContext";
 
 const AddPatient = () => {
   const navigate = useNavigate();

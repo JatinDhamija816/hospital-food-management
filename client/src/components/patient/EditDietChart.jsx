@@ -45,11 +45,11 @@ const EditDietChart = () => {
         alert("Diet Chart updated successfully!");
         navigate("/all-patients");
       } else {
-        alert(res.response.data.message);
+        alert(res.message);
       }
     } catch (error) {
       alert("Something went wrong!");
-      console.error(error);
+      console.error(`Error While Edit Diet Chart `, error);
     } finally {
       setIndividualPatient({});
       setRefreshPatient(true);

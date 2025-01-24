@@ -35,11 +35,11 @@ const AddPantryStaff = () => {
         alert("Pantry Staff Added Success ,  Refersh Page");
         navigate("/all-pantry-staff");
       } else {
-        alert(res.response.data.message);
+        alert(res.message);
       }
     } catch (error) {
       alert("Something went wrong");
-      throw new error();
+      console.error("Error add pantry staff", error);
     }
   };
 

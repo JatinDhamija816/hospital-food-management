@@ -16,8 +16,9 @@ const AllPatients = () => {
       const res = await getIndividualPatient(patientId);
       if (res.success) {
         setIndividualPatient(res.patient);
-        await setRefreshPatient(true);
         navigate("/edit-patient");
+      } else {
+        alert(res.message);
       }
     } catch (error) {
       console.error("Error edit patients:", error);
@@ -29,8 +30,9 @@ const AllPatients = () => {
       const res = await getIndividualPatient(patientId);
       if (res.success) {
         setIndividualPatient(res.patient.dietChart);
-        await setRefreshPatient(true);
         navigate("/edit-diet-chart");
+      } else {
+        alert(res.message);
       }
     } catch (error) {
       console.error("Error edit diet chart:", error);
@@ -42,6 +44,8 @@ const AllPatients = () => {
       const res = await deletePatient(patientId);
       if (res.success) {
         await setRefreshPatient(true);
+      } else {
+        alert(res.message);
       }
     } catch (error) {
       console.error("Error delete patients:", error);
