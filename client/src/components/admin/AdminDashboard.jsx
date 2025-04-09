@@ -62,6 +62,7 @@ const AdminDashboard = () => {
         <table className="min-w-full table-auto border-collapse border border-gray-300">
           <thead>
             <tr className="bg-gray-100 text-left">
+                            <th className="p-3 border border-gray-300">Doctor Name</th>
               <th className="p-3 border border-gray-300">Patient Name</th>
               <th className="p-3 border border-gray-300">Age</th>
               <th className="p-3 border border-gray-300">Disease</th>
